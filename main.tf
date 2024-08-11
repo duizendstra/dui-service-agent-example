@@ -67,7 +67,15 @@ resource "google_service_account" "service_accounts" {
   description  = each.value.description
 }
 
-output "service_identities" {
+output "service_identities_orignal" {
+  value = {
+    for service, identity in google_project_service_identity.service_identities : service => {
+      sa = identity
+    }
+  }
+}
+
+output "service_identities_transformed" {
   value = {
     for service, identity in google_project_service_identity.service_identities : service => {
       email   = local.service_agents_output[service].email
@@ -76,6 +84,7 @@ output "service_identities" {
       name    = local.service_agents_output[service].name
       project = identity.project
       service = identity.service
+      sa      = identity
     }
   }
 }
@@ -83,11 +92,12 @@ output "service_identities" {
 output "service_accounts" {
   value = {
     for account_id, account in google_service_account.service_accounts : account_id => {
-      email         = account.email
-      id            = account.id
-      display_name  = account.display_name
-      member        = "serviceAccount:${account.email}"
-      project       = account.project
+      email        = account.email
+      id           = account.id
+      display_name = account.display_name
+      member       = "serviceAccount:${account.email}"
+      project      = account.project
+      sa           = account
     }
   }
 }
