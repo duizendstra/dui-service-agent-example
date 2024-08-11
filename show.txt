@@ -40,15 +40,54 @@ service_accounts = {
         id           = "projects/dui-builder-solution-test-2d44/serviceAccounts/cloud-build@dui-builder-solution-test-2d44.iam.gserviceaccount.com"
         member       = "serviceAccount:cloud-build@dui-builder-solution-test-2d44.iam.gserviceaccount.com"
         project      = "dui-builder-solution-test-2d44"
+        sa           = {
+            account_id   = "cloud-build"
+            description  = "Cloud Build Service Account"
+            disabled     = false
+            display_name = "Cloud Build"
+            email        = "cloud-build@dui-builder-solution-test-2d44.iam.gserviceaccount.com"
+            id           = "projects/dui-builder-solution-test-2d44/serviceAccounts/cloud-build@dui-builder-solution-test-2d44.iam.gserviceaccount.com"
+            member       = "serviceAccount:cloud-build@dui-builder-solution-test-2d44.iam.gserviceaccount.com"
+            name         = "projects/dui-builder-solution-test-2d44/serviceAccounts/cloud-build@dui-builder-solution-test-2d44.iam.gserviceaccount.com"
+            project      = "dui-builder-solution-test-2d44"
+            unique_id    = "115676745528981711439"
+        }
     }
 }
-service_identities = {
+service_identities_orignal = {
+    "cloudbuild.googleapis.com" = {
+        sa = {
+            email   = "182291718019@cloudbuild.gserviceaccount.com"
+            id      = "projects/dui-builder-solution-test-2d44/services/cloudbuild.googleapis.com"
+            member  = "serviceAccount:182291718019@cloudbuild.gserviceaccount.com"
+            project = "dui-builder-solution-test-2d44"
+            service = "cloudbuild.googleapis.com"
+        }
+    }
+    "dataform.googleapis.com"   = {
+        sa = {
+            email   = "service-182291718019@gcp-sa-dataform.iam.gserviceaccount.com"
+            id      = "projects/dui-builder-solution-test-2d44/services/dataform.googleapis.com"
+            member  = "serviceAccount:service-182291718019@gcp-sa-dataform.iam.gserviceaccount.com"
+            project = "dui-builder-solution-test-2d44"
+            service = "dataform.googleapis.com"
+        }
+    }
+}
+service_identities_transformed = {
     "cloudbuild.googleapis.com" = {
         email   = "service-182291718019@gcp-sa-cloudbuild.iam.gserviceaccount.com"
         id      = "projects/dui-builder-solution-test-2d44/services/cloudbuild.googleapis.com"
         member  = "serviceAccount:service-182291718019@gcp-sa-cloudbuild.iam.gserviceaccount.com"
         name    = "projects/dui-builder-solution-test-2d44/services/cloudbuild.googleapis.com/182291718019@cloudbuild.gserviceaccount.com"
         project = "dui-builder-solution-test-2d44"
+        sa      = {
+            email   = "182291718019@cloudbuild.gserviceaccount.com"
+            id      = "projects/dui-builder-solution-test-2d44/services/cloudbuild.googleapis.com"
+            member  = "serviceAccount:182291718019@cloudbuild.gserviceaccount.com"
+            project = "dui-builder-solution-test-2d44"
+            service = "cloudbuild.googleapis.com"
+        }
         service = "cloudbuild.googleapis.com"
     }
     "dataform.googleapis.com"   = {
@@ -57,6 +96,13 @@ service_identities = {
         member  = "serviceAccount:service-182291718019@gcp-sa-dataform.iam.gserviceaccount.com"
         name    = "projects/dui-builder-solution-test-2d44/services/dataform.googleapis.com/service-182291718019@gcp-sa-dataform.iam.gserviceaccount.com"
         project = "dui-builder-solution-test-2d44"
+        sa      = {
+            email   = "service-182291718019@gcp-sa-dataform.iam.gserviceaccount.com"
+            id      = "projects/dui-builder-solution-test-2d44/services/dataform.googleapis.com"
+            member  = "serviceAccount:service-182291718019@gcp-sa-dataform.iam.gserviceaccount.com"
+            project = "dui-builder-solution-test-2d44"
+            service = "dataform.googleapis.com"
+        }
         service = "dataform.googleapis.com"
     }
 }
