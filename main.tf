@@ -13,6 +13,8 @@ terraform {
 
 locals {
   project_number = 182291718019
+  project        = "dui-builder-solution-test-2d44"
+
   service_agents = [
     "cloudbuild.googleapis.com",
     "dataform.googleapis.com"
@@ -48,7 +50,7 @@ locals {
 
 resource "google_project_service_identity" "service_identities" {
   provider = google-beta
-  project  = "dui-builder-solution-test-2d44"
+  project  = local.project
 
   for_each = toset(local.service_agents)
 
